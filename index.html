@@ -1,18 +1,61 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smile F 프로젝트</title>
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Smile F Project</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-<div class="viewer">
-  <button id="prevBtn">◀</button>
-  <img id="comicImage" src="images/page1.png" alt="웹툰">
-  <button id="nextBtn">▶</button>
+
+<!-- 로딩 -->
+
+<div id="loader">
+
+<div class="logo">
+
+🦷 Smile F Project
+
 </div>
-<div class="page" id="pageNumber">1 / 6</div>
+
+<div class="loading">
+
+<div class="bar"></div>
+
+</div>
+
+<p>Loading...</p>
+
+</div>
+
+<!-- 메인 -->
+
+<div id="viewer" class="hidden">
+
+<button id="prevBtn" class="nav left">❮</button>
+
+<div class="comic">
+
+<img id="comicImage">
+
+</div>
+
+<button id="nextBtn" class="nav right">❯</button>
+
+<div id="pageNumber"></div>
+
+</div>
+
 <script src="script.js"></script>
+
 </body>
+
 </html>
