@@ -1,7 +1,8 @@
-// ==========================
-// 이미지 목록
-// ==========================
+// =====================================
+// Smile F Webtoon Viewer
+// =====================================
 
+// 이미지 목록
 const pages = [
     "page1.png",
     "page2.png",
@@ -13,11 +14,7 @@ const pages = [
 
 let currentPage = 0;
 
-
-// ==========================
-// 요소 가져오기
-// ==========================
-
+// 요소
 const loading = document.getElementById("loading");
 const cover = document.getElementById("cover");
 const viewer = document.getElementById("viewer");
@@ -29,9 +26,9 @@ const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
 
-// ==========================
+// =====================================
 // 이미지 미리 로딩
-// ==========================
+// =====================================
 
 pages.forEach(file => {
 
@@ -42,9 +39,9 @@ pages.forEach(file => {
 });
 
 
-// ==========================
-// 첫 로딩
-// ==========================
+// =====================================
+// 로딩 → Cover
+// =====================================
 
 window.addEventListener("load", () => {
 
@@ -54,14 +51,14 @@ window.addEventListener("load", () => {
 
         cover.classList.remove("hidden");
 
-    }, 1500);
+    }, 700);
 
 });
 
 
-// ==========================
-// 웹툰 시작
-// ==========================
+// =====================================
+// Cover → Viewer
+// =====================================
 
 startBtn.addEventListener("click", () => {
 
@@ -76,60 +73,101 @@ startBtn.addEventListener("click", () => {
 });
 
 
-// ==========================
+// =====================================
 // 페이지 표시
-// ==========================
+// =====================================
 
 function showPage(){
 
-    comicImage.src = "images/" + pages[currentPage];
+    comicImage.style.opacity = 0;
 
-    prevBtn.disabled = currentPage === 0;
+    setTimeout(()=>{
 
-    nextBtn.disabled = currentPage === pages.length - 1;
+        comicImage.src = "images/" + pages[currentPage];
+
+    },100);
 
 }
 
 
-// ==========================
+// 이미지 로드 후 Fade
+
+comicImage.onload = function(){
+
+    comicImage.style.transition = "opacity .25s";
+
+    comicImage.style.opacity = 1;
+
+    prevBtn.disabled = currentPage===0;
+
+    if(currentPage===pages.length-1){
+
+        nextBtn.textContent="처음으로";
+
+    }else{
+
+        nextBtn.textContent="다음 ▶";
+
+    }
+
+}
+
+
+// =====================================
 // 다음
-// ==========================
+// =====================================
 
-nextBtn.addEventListener("click", () => {
+nextBtn.addEventListener("click",()=>{
 
-    if(currentPage < pages.length-1){
+    // 마지막 페이지
 
-        currentPage++;
+    if(currentPage===pages.length-1){
 
-        showPage();
+        viewer.classList.add("hidden");
+
+        loading.classList.remove("hidden");
+
+        setTimeout(()=>{
+
+            loading.classList.add("hidden");
+
+            cover.classList.remove("hidden");
+
+            currentPage=0;
+
+        },500);
+
+        return;
 
     }
+
+    currentPage++;
+
+    showPage();
 
 });
 
 
-// ==========================
+// =====================================
 // 이전
-// ==========================
+// =====================================
 
-prevBtn.addEventListener("click", () => {
+prevBtn.addEventListener("click",()=>{
 
-    if(currentPage > 0){
+    if(currentPage===0) return;
 
-        currentPage--;
+    currentPage--;
 
-        showPage();
-
-    }
+    showPage();
 
 });
 
 
-// ==========================
+// =====================================
 // 키보드
-// ==========================
+// =====================================
 
-document.addEventListener("keydown", e=>{
+document.addEventListener("keydown",(e)=>{
 
     if(viewer.classList.contains("hidden")) return;
 
@@ -148,23 +186,23 @@ document.addEventListener("keydown", e=>{
 });
 
 
-// ==========================
+// =====================================
 // 모바일 스와이프
-// ==========================
+// =====================================
 
-let startX = 0;
+let startX=0;
 
-let endX = 0;
+let endX=0;
 
-comicImage.addEventListener("touchstart", e=>{
+comicImage.addEventListener("touchstart",(e)=>{
 
-    startX = e.changedTouches[0].clientX;
+    startX=e.changedTouches[0].clientX;
 
 });
 
-comicImage.addEventListener("touchend", e=>{
+comicImage.addEventListener("touchend",(e)=>{
 
-    endX = e.changedTouches[0].clientX;
+    endX=e.changedTouches[0].clientX;
 
     if(startX-endX>60){
 
