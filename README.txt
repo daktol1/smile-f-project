@@ -1,0 +1,1 @@
+images 폴더에 cover.png와 page1.png~page6.png를 넣은 후 GitHub에 업로드하세요.
