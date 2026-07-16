@@ -293,3 +293,13 @@ padding:8px 16px;
 .last-page #pageNumber{
     display:none !important;
 }
+/* ===== 모바일에서는 화살표 숨기기 ===== */
+
+@media (max-width:768px){
+
+#prevBtn,
+#nextBtn{
+    display:none;
+}
+
+}
