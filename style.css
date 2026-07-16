@@ -1,3 +1,7 @@
+/* =========================
+   기본 설정
+========================= */
+
 *{
     margin:0;
     padding:0;
@@ -6,17 +10,121 @@
 
 body{
 
+    font-family:
+    "Pretendard",
+    "Apple SD Gothic Neo",
+    sans-serif;
+
     background:#111;
+
+    color:white;
 
     overflow-x:hidden;
 
-    font-family:sans-serif;
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
 
 }
 
+.hidden{
+
+    display:none;
+
+}
+
+
+
+/* =========================
+   Loading
+========================= */
+
+#loading{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#111;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+.loading-box{
+
+    text-align:center;
+
+}
+
+.loading-logo{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.loading-text{
+
+    color:#cccccc;
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+}
+
+.spinner{
+
+    width:55px;
+
+    height:55px;
+
+    margin:auto;
+
+    border:5px solid rgba(255,255,255,.2);
+
+    border-top:5px solid white;
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+
+
+
+/* =========================
+   Cover
+========================= */
+
 #cover{
 
-    width:100%;
     min-height:100vh;
 
     display:flex;
@@ -27,46 +135,81 @@ body{
 
     align-items:center;
 
+    padding:30px;
+
 }
 
-#cover img{
+#coverImage{
 
     width:100%;
+
     max-width:900px;
 
-    display:block;
+    border-radius:18px;
+
+    box-shadow:
+
+    0 15px 45px rgba(0,0,0,.45);
 
 }
 
-button{
 
-    margin:30px;
 
-    padding:16px 40px;
+/* =========================
+   시작 버튼
+========================= */
 
-    font-size:20px;
+#startBtn{
+
+    margin-top:35px;
+
+    padding:16px 42px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:12px;
+
+    background:#ffffff;
+
+    color:#111;
+
+    font-size:18px;
+
+    font-weight:700;
 
     cursor:pointer;
 
+    transition:.25s;
+
 }
+
+#startBtn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+
+
+
+/* =========================
+   Viewer
+========================= */
 
 #viewer{
 
-    display:none;
-
     width:100%;
+
+    padding:20px 15px 40px;
 
 }
 
-.page{
 
-    display:block;
 
-    width:100%;
+/* 이미지 */
+
+.page-container{
 
     max-width:900px;
 
@@ -74,12 +217,138 @@ button{
 
 }
 
-.page img{
-
-    display:block;
+#comicImage{
 
     width:100%;
 
     height:auto;
+
+    border-radius:12px;
+
+    box-shadow:
+
+    0 12px 35px rgba(0,0,0,.35);
+
+}
+
+
+
+
+
+/* =========================
+   버튼
+========================= */
+
+.controls{
+
+    max-width:900px;
+
+    margin:28px auto 10px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+.controls button{
+
+    flex:1;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:white;
+
+    color:#111;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.controls button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.controls button:disabled{
+
+    opacity:.4;
+
+    cursor:not-allowed;
+
+}
+
+
+
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width:768px){
+
+    .loading-logo{
+
+        font-size:34px;
+
+    }
+
+    .loading-text{
+
+        font-size:16px;
+
+    }
+
+    #cover{
+
+        padding:15px;
+
+    }
+
+    #startBtn{
+
+        width:100%;
+
+        max-width:300px;
+
+        font-size:17px;
+
+    }
+
+    #viewer{
+
+        padding:10px 10px 30px;
+
+    }
+
+    .controls{
+
+        margin-top:18px;
+
+        gap:12px;
+
+    }
+
+    .controls button{
+
+        font-size:16px;
+
+        padding:14px;
+
+    }
 
 }
