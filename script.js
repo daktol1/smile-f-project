@@ -1,1 +1,40 @@
-*{margin:0;padding:0;box-sizing:border-box}html,body{width:100%;height:100%;overflow:hidden;background:#dfe7f5;font-family:Arial}.loading{position:fixed;inset:0;display:flex;justify-content:center;align-items:center;background:#fff;transition:.4s}.loading.hide{opacity:0;visibility:hidden}.viewer{width:100%;height:100%;display:flex;justify-content:center;align-items:center;padding:12px}#comicImage{max-width:96vw;max-height:92vh;object-fit:contain;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,.25);transition:opacity .2s}.nav{position:fixed;top:50%;transform:translateY(-50%);width:56px;height:56px;border:none;border-radius:50%;background:#2d5eff;color:#fff;font-size:28px}.prev{left:12px}.next{right:12px}@media(max-width:768px){.viewer{align-items:flex-start;padding-top:8px}#comicImage{max-height:78dvh}.nav{display:none}}
+const pages = [
+
+"page1.png",
+"page2.png",
+"page3.png",
+"page4.png",
+"page5.png",
+"page6.png"
+
+];
+
+const viewer = document.getElementById("viewer");
+
+document
+.getElementById("startBtn")
+.onclick = function(){
+
+    document.getElementById("cover").style.display="none";
+
+    viewer.style.display="block";
+
+    pages.forEach(function(file){
+
+        const div=document.createElement("div");
+
+        div.className="page";
+
+        const img=document.createElement("img");
+
+        img.src="images/"+file;
+
+        img.loading="lazy";
+
+        div.appendChild(img);
+
+        viewer.appendChild(div);
+
+    });
+
+};
