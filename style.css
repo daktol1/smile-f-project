@@ -1,125 +1,66 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+<!DOCTYPE html>
+<html lang="ko">
 
-body{
-    font-family:sans-serif;
-    background:#dfe7f5;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    overflow:hidden;
-}
+<head>
 
-.viewer{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    padding:20px;
-}
+<meta charset="UTF-8">
 
-#comicImage{
-    width:auto;
-    max-width:92vw;
-    max-height:90vh;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-    transition:opacity .25s ease;
-}
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-.nav{
-    position:fixed;
-    top:50%;
-    transform:translateY(-50%);
-    width:72px;
-    height:72px;
-    border:none;
-    border-radius:50%;
-    background:#2f6bff;
-    color:white;
-    font-size:40px;
-    cursor:pointer;
-    z-index:100;
-    transition:.2s;
-}
+<title>Smile F Project</title>
 
-.nav:hover{
-    transform:translateY(-50%) scale(1.05);
-}
+<link rel="stylesheet" href="style.css">
 
-#prevBtn{
-    left:25px;
-}
+</head>
 
-#nextBtn{
-    right:25px;
-}
+<body>
 
-.loading{
-    position:fixed;
-    inset:0;
-    background:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:30px;
-    font-weight:bold;
-    z-index:9999;
-    transition:.5s;
-}
+<!-- 로딩 -->
 
-.loading.hide{
-    opacity:0;
-    pointer-events:none;
-}
+<div id="loading" class="loading">
 
-/* ---------- 모바일 ---------- */
+<div class="loadingBox">
 
-@media (max-width:768px){
+<div class="tooth">🦷</div>
 
-body{
+<h2>Smile F 웹툰</h2>
 
-    overflow:hidden;
+<p>불러오는 중...</p>
 
-}
+</div>
 
-.viewer{
+</div>
 
-    padding:8px;
+<!-- 웹툰 -->
 
-}
+<div class="viewer">
 
-#comicImage{
+<button id="prevBtn" class="nav prev">
 
-    max-width:96vw;
-    max-height:76vh;
-    object-fit:contain;
+❮
 
-}
+</button>
 
-.nav{
+<div class="comicArea">
 
-    width:54px;
-    height:54px;
-    font-size:28px;
+<img
+id="comicImage"
+src=""
+alt="Smile F Webtoon">
 
-}
+</div>
 
-#prevBtn{
+<button id="nextBtn" class="nav next">
 
-    left:10px;
+❯
 
-}
+</button>
 
-#nextBtn{
+</div>
 
-    right:10px;
+<script src="script.js"></script>
 
-}
+</body>
 
-}
+</html>
