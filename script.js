@@ -11,7 +11,6 @@ const pages = [
 let current = 0;
 
 const img = document.getElementById("comicImage");
-const page = document.getElementById("pageNumber");
 const progress = document.getElementById("progress");
 
 const prevBtn = document.getElementById("prevBtn");
@@ -47,8 +46,7 @@ function render(){
 
         img.src = pages[current];
 
-        page.textContent =
-            `${current+1} / ${pages.length}`;
+       
 
         progress.style.width =
             ((current+1)/pages.length*100)+"%";
