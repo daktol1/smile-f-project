@@ -1,5 +1,5 @@
 /* =========================
-   기본 설정
+   Reset
 ========================= */
 
 *{
@@ -8,16 +8,20 @@
     box-sizing:border-box;
 }
 
+html,
 body{
+
+    width:100%;
+    height:100%;
+
+    background:#111;
+
+    color:white;
 
     font-family:
     "Pretendard",
     "Apple SD Gothic Neo",
     sans-serif;
-
-    background:#111;
-
-    color:white;
 
     overflow-x:hidden;
 
@@ -31,12 +35,16 @@ img{
 
 }
 
+
+/* =========================
+   숨김
+========================= */
+
 .hidden{
 
-    display:none;
+    display:none !important;
 
 }
-
 
 
 /* =========================
@@ -47,7 +55,11 @@ img{
 
     position:fixed;
 
-    inset:0;
+    top:0;
+    left:0;
+
+    width:100vw;
+    height:100vh;
 
     background:#111;
 
@@ -71,7 +83,7 @@ img{
 
     font-size:42px;
 
-    font-weight:700;
+    font-weight:bold;
 
     margin-bottom:18px;
 
@@ -79,27 +91,27 @@ img{
 
 .loading-text{
 
-    color:#cccccc;
+    color:#d0d0d0;
 
     font-size:18px;
 
-    margin-bottom:35px;
+    margin-bottom:30px;
 
 }
 
 .spinner{
 
-    width:55px;
+    width:52px;
 
-    height:55px;
+    height:52px;
 
     margin:auto;
 
+    border-radius:50%;
+
     border:5px solid rgba(255,255,255,.2);
 
-    border-top:5px solid white;
-
-    border-radius:50%;
+    border-top-color:white;
 
     animation:spin .8s linear infinite;
 
@@ -117,13 +129,13 @@ img{
 
 
 
-
-
 /* =========================
    Cover
 ========================= */
 
 #cover{
+
+    width:100%;
 
     min-height:100vh;
 
@@ -135,7 +147,7 @@ img{
 
     align-items:center;
 
-    padding:30px;
+    padding:20px;
 
 }
 
@@ -145,51 +157,39 @@ img{
 
     max-width:900px;
 
-    border-radius:18px;
-
-    box-shadow:
-
-    0 15px 45px rgba(0,0,0,.45);
+    border-radius:14px;
 
 }
 
-
-
-/* =========================
-   시작 버튼
-========================= */
-
 #startBtn{
 
-    margin-top:35px;
+    margin-top:30px;
 
-    padding:16px 42px;
+    width:240px;
+
+    height:54px;
 
     border:none;
 
-    border-radius:12px;
+    border-radius:10px;
 
-    background:#ffffff;
+    background:white;
 
     color:#111;
 
     font-size:18px;
 
-    font-weight:700;
+    font-weight:bold;
 
     cursor:pointer;
-
-    transition:.25s;
 
 }
 
 #startBtn:hover{
 
-    transform:translateY(-2px);
+    opacity:.9;
 
 }
-
-
 
 
 
@@ -201,15 +201,13 @@ img{
 
     width:100%;
 
-    padding:20px 15px 40px;
+    padding:20px;
 
 }
 
-
-
-/* 이미지 */
-
 .page-container{
+
+    width:100%;
 
     max-width:900px;
 
@@ -223,33 +221,27 @@ img{
 
     height:auto;
 
-    border-radius:12px;
-
-    box-shadow:
-
-    0 12px 35px rgba(0,0,0,.35);
-
 }
 
 
 
-
-
 /* =========================
-   버튼
+   Buttons
 ========================= */
 
 .controls{
 
+    width:100%;
+
     max-width:900px;
 
-    margin:28px auto 10px;
+    margin:24px auto 40px;
 
     display:flex;
 
     justify-content:space-between;
 
-    gap:20px;
+    gap:15px;
 
 }
 
@@ -257,11 +249,11 @@ img{
 
     flex:1;
 
-    padding:15px;
+    height:52px;
 
     border:none;
 
-    border-radius:12px;
+    border-radius:10px;
 
     background:white;
 
@@ -269,23 +261,15 @@ img{
 
     font-size:17px;
 
-    font-weight:700;
+    font-weight:bold;
 
     cursor:pointer;
-
-    transition:.2s;
-
-}
-
-.controls button:hover{
-
-    transform:translateY(-2px);
 
 }
 
 .controls button:disabled{
 
-    opacity:.4;
+    opacity:.35;
 
     cursor:not-allowed;
 
@@ -293,10 +277,8 @@ img{
 
 
 
-
-
 /* =========================
-   모바일
+   Mobile
 ========================= */
 
 @media (max-width:768px){
@@ -315,7 +297,7 @@ img{
 
     #cover{
 
-        padding:15px;
+        padding:12px;
 
     }
 
@@ -323,15 +305,13 @@ img{
 
         width:100%;
 
-        max-width:300px;
-
-        font-size:17px;
+        max-width:280px;
 
     }
 
     #viewer{
 
-        padding:10px 10px 30px;
+        padding:8px;
 
     }
 
@@ -339,15 +319,7 @@ img{
 
         margin-top:18px;
 
-        gap:12px;
-
-    }
-
-    .controls button{
-
-        font-size:16px;
-
-        padding:14px;
+        gap:10px;
 
     }
 
