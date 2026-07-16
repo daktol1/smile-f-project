@@ -1,1 +1,18 @@
-<!doctype html><html lang='ko'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Smile F Project</title><link rel='stylesheet' href='style.css'></head><body><section class='hero'><h1>🦷 Smile F Project</h1><p>From Science to Prevention</p><button onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">START</button></section><section id='intro'><h2>프로젝트 소개</h2><p>통합과학Ⅰ 산·염기 개념을 바탕으로 불소의 예방 원리를 탐구한 프로젝트입니다.</p></section><section><h2>웹툰</h2><img src='images/cover.png'><img src='images/page1.png'><img src='images/page2.png'><img src='images/page3.png'><img src='images/page4.png'><img src='images/page5.png'><img src='images/page6.png'></section><section class='end'><h2>감사합니다.</h2><a href='#'>처음으로 ↑</a></section></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smile F 프로젝트</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="viewer">
+  <button id="prevBtn">◀</button>
+  <img id="comicImage" src="images/page1.png" alt="웹툰">
+  <button id="nextBtn">▶</button>
+</div>
+<div class="page" id="pageNumber">1 / 6</div>
+<script src="script.js"></script>
+</body>
+</html>
