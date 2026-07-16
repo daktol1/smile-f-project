@@ -12,51 +12,63 @@ let current = 0;
 
 const img = document.getElementById("comicImage");
 const page = document.getElementById("pageNumber");
-const viewer = document.getElementById("viewer");
+const progress = document.getElementById("progress");
 
-const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+const loading = document.getElementById("loading");
 
 // --------------------
 // 로딩
 // --------------------
 
-window.onload = () => {
+window.addEventListener("load", () => {
+
+    render();
 
     setTimeout(() => {
 
-        document.getElementById("loader").style.display = "none";
+        loading.classList.add("hide");
 
-        viewer.classList.remove("hidden");
+    }, 1200);
 
-        render();
-
-    },1200);
-
-};
+});
 
 // --------------------
-// 화면 출력
+// 화면 갱신
 // --------------------
 
 function render(){
 
-    img.src = pages[current];
+    img.style.opacity = 0;
 
-    page.textContent = `${current+1} / ${pages.length}`;
+    setTimeout(()=>{
 
-    prevBtn.style.visibility =
-        current===0 ? "hidden":"visible";
+        img.src = pages[current];
 
-    if(current===pages.length-1){
+        page.textContent =
+            `${current+1} / ${pages.length}`;
 
-        nextBtn.textContent="🏠";
+        progress.style.width =
+            ((current+1)/pages.length*100)+"%";
 
-    }else{
+        prevBtn.disabled =
+            current===0;
 
-        nextBtn.textContent="❯";
+        if(current===pages.length-1){
 
-    }
+            nextBtn.innerHTML="🏠";
+
+        }else{
+
+            nextBtn.innerHTML="❯";
+
+        }
+
+        img.style.opacity=1;
+
+    },120);
 
 }
 
@@ -70,23 +82,13 @@ function nextPage(){
 
         current=0;
 
-        render();
-
-        return;
-
-    }
-
-    img.classList.add("slide-left");
-
-    setTimeout(()=>{
+    }else{
 
         current++;
 
-        render();
+    }
 
-        img.classList.remove("slide-left");
-
-    },180);
+    render();
 
 }
 
@@ -98,23 +100,17 @@ function prevPage(){
 
     if(current===0) return;
 
-    img.classList.add("slide-right");
+    current--;
 
-    setTimeout(()=>{
-
-        current--;
-
-        render();
-
-        img.classList.remove("slide-right");
-
-    },180);
+    render();
 
 }
 
-nextBtn.onclick = nextPage;
+// --------------------
 
-prevBtn.onclick = prevPage;
+nextBtn.onclick=nextPage;
+
+prevBtn.onclick=prevPage;
 
 // --------------------
 // 키보드
@@ -132,15 +128,19 @@ document.addEventListener("keydown",(e)=>{
 // 마우스 휠
 // --------------------
 
-let wheelLock=false;
+let lock=false;
 
 window.addEventListener("wheel",(e)=>{
 
-    if(wheelLock) return;
+    if(lock) return;
 
-    wheelLock=true;
+    lock=true;
 
-    setTimeout(()=>wheelLock=false,400);
+    setTimeout(()=>{
+
+        lock=false;
+
+    },450);
 
     if(e.deltaY>0){
 
@@ -155,7 +155,7 @@ window.addEventListener("wheel",(e)=>{
 });
 
 // --------------------
-// 스와이프
+// 모바일 스와이프
 // --------------------
 
 let startX=0;
@@ -172,13 +172,13 @@ img.addEventListener("touchend",(e)=>{
 
     let diff=endX-startX;
 
-    if(diff<-60){
+    if(diff<-70){
 
         nextPage();
 
     }
 
-    if(diff>60){
+    if(diff>70){
 
         prevPage();
 
