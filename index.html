@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Smile F Project</title>
+<title>Smile F 프로젝트</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -16,46 +13,65 @@ content="width=device-width, initial-scale=1.0">
 
 <body>
 
-<!-- 로딩 -->
+<!-- 로딩 화면 -->
 
-<div id="loader">
+<div id="loading">
 
-<div class="logo">
+<div class="loading-logo">
 
-🦷 Smile F Project
-
-</div>
-
-<div class="loading">
-
-<div class="bar"></div>
+🦷 Smile F
 
 </div>
 
-<p>Loading...</p>
+<div class="loading-text">
+
+웹툰을 불러오는 중...
 
 </div>
+
+</div>
+
+
+
+<!-- 진행바 -->
+
+<div id="progressBar">
+
+<div id="progress"></div>
+
+</div>
+
+
 
 <!-- 메인 -->
 
-<div id="viewer" class="hidden">
+<div id="viewer">
 
-<button id="prevBtn" class="nav left">❮</button>
+<button id="prevBtn">❮</button>
 
-<div class="comic">
+<div id="comicContainer">
 
-<img id="comicImage">
+<img id="comicImage" src="">
+
+</div>
+
+<button id="nextBtn">❯</button>
 
 </div>
 
-<button id="nextBtn" class="nav right">❯</button>
 
-<div id="pageNumber"></div>
+
+<!-- 페이지 번호 -->
+
+<div id="pageNumber">
+
+1 / 7
 
 </div>
+
+
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
