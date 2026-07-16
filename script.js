@@ -99,7 +99,54 @@ function prevPage(){
     if(current===0) return;
 
     current--;
+// =========================
+// 모바일 화면 좌우 터치
+// =========================
 
+img.addEventListener("click",(e)=>{
+
+    if(window.innerWidth>768) return;
+
+    const x=e.clientX;
+
+    if(x<window.innerWidth/2){
+
+        prevBtn.click();
+
+    }else{
+
+        nextBtn.click();
+
+    }
+
+});
+   // =========================
+// 마우스 휠
+// =========================
+
+let wheelLock=false;
+
+window.addEventListener("wheel",(e)=>{
+
+    if(wheelLock) return;
+
+    wheelLock=true;
+
+    setTimeout(()=>{
+        wheelLock=false;
+    },250);
+
+    if(e.deltaY>0){
+
+        nextBtn.click();
+
+    }else{
+
+        prevBtn.click();
+
+    }
+
+});
     render();
 
 }
