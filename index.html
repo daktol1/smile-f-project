@@ -1,31 +1,107 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Smile F Project</title>
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="style.css">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smile F Project</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div id="cover">
+    <!-- =========================
+         1. LOADING
+    ========================== -->
 
-    <img src="images/cover.png" alt="cover">
+    <section id="loading">
 
-    <button id="startBtn">
-        웹툰 시작하기
-    </button>
+        <div class="loading-box">
 
-</div>
+            <div class="loading-logo">
+                🦷 Smile F
+            </div>
+
+            <div class="loading-text">
+                웹툰을 준비하고 있습니다...
+            </div>
+
+            <div class="spinner"></div>
+
+        </div>
+
+    </section>
 
 
-<div id="viewer"></div>
+
+    <!-- =========================
+         2. COVER
+    ========================== -->
+
+    <section id="cover" class="hidden">
+
+        <img
+            src="images/cover.png"
+            alt="Smile F Cover"
+            id="coverImage">
+
+        <button id="startBtn">
+
+            웹툰 시작하기
+
+        </button>
+
+    </section>
 
 
-<script src="script.js"></script>
+
+    <!-- =========================
+         3. WEBTOON VIEWER
+    ========================== -->
+
+    <main id="viewer" class="hidden">
+
+        <div class="page-container">
+
+            <img
+                id="comicImage"
+                src=""
+                alt="Smile F Webtoon">
+
+        </div>
+
+
+
+        <div class="controls">
+
+            <button id="prevBtn">
+
+                ◀ 이전
+
+            </button>
+
+
+
+            <button id="nextBtn">
+
+                다음 ▶
+
+            </button>
+
+        </div>
+
+    </main>
+
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
